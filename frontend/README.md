@@ -1,9 +1,8 @@
-# 📊 Smart Expense Tracker (Full-Stack)
+# 📊 ExpensePilot
 
 A simple, clean web application to **track income, expenses, balance, and spending categories** — built with **ReactJS, Tailwind CSS** (frontend) and **Node.js, Express, MongoDB Atlas** (backend). Visualize spending with **charts** and see where your money goes.
 
-🌐 **Live App:** https://smart-expense-tracker-nine.vercel.app  
-⚙️ **API (Backend):** https://smart-expense-backend-n1u3.onrender.com  
+
 
 ---
 
@@ -43,7 +42,7 @@ A simple, clean web application to **track income, expenses, balance, and spendi
 
 ## 📂 Project Structure (Frontend)
 
-📦 SmartExpenseTracker  
+📦 ExpensePilot 
  ┣ 📂 src  
  ┃ ┣ 📂 components  
  ┃ ┃ ┣ Home.jsx  
@@ -96,8 +95,8 @@ A simple, clean web application to **track income, expenses, balance, and spendi
 
 ### Backend
 ```bash
-git clone https://github.com/<you>/smart-expense-backend
-cd smart-expense-backend
+git clone https://github.com/<you>/ExpensePilot
+cd backend
 npm install
 npm run dev
 ```

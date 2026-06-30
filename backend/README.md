@@ -1,10 +1,9 @@
-# 🛠️ Smart Expense Tracker — Backend (Node.js + Express + MongoDB)
+# 🛠️ ExpensePilot Backend (Node.js + Express + MongoDB)
 
-This is the **backend API** for the Smart Expense Tracker.  
+This is the **backend API** for the ExpensePilot.  
 It provides RESTful endpoints to manage **incomes** and **expenses**, with full CRUD operations, filtering, and persistent storage in **MongoDB Atlas**.
 
-🌐 **Frontend (Live App):** https://smart-expense-tracker-nine.vercel.app  
-⚙️ **Backend (API):** https://smart-expense-backend-n1u3.onrender.com  
+
 
 ---
 
@@ -33,7 +32,7 @@ It provides RESTful endpoints to manage **incomes** and **expenses**, with full 
 
 ### 1. Clone & Install
 ```bash
-git clone https://github.com/<you>/smart-expense-backend
+git clone https://github.com/<you>/ExpensePilot
 cd smart-expense-backend
 npm install
 ```

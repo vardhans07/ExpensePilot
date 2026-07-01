@@ -88,9 +88,16 @@ Use this structure if your project is organized in separate frontend and backend
 ```bash
 ExpensePilot/
 ├── frontend/
-│   ├── src/
-│   ├── public/
-│   ├── index.html
+│   ├── src/ 
+│   │       ├── assets
+│   │       ├── componets
+│   │       ├── context
+│   │ 
+│   ├──App.css
+│   ├──App.jsx
+│   ├──index.css
+│   ├──main.jsx
+│   ├──index.html
 │   ├── package.json
 │   └── .env
 ├── backend/
@@ -100,6 +107,7 @@ ExpensePilot/
 │   │   ├── controllers/
 │   │   └── index.js
 │   ├── package.json
+│   ├──server.js
 │   └── .env
 └── README.md
 ```
@@ -368,45 +376,7 @@ npm run dev
 
 ---
 
-## API routes
 
-Your project uses REST-style routes for income and expenses.
-
-### Expenses
-```bash
-GET /api/expenses
-POST /api/expenses
-PUT /api/expenses/:id
-DELETE /api/expenses/:id
-```
-
-### Incomes
-```bash
-GET /api/incomes
-POST /api/incomes
-PUT /api/incomes/:id
-DELETE /api/incomes/:id
-```
-
-### Health check
-```bash
-GET /
-GET /api
-```
-
----
-
-## Example API test
-
-Create an expense using curl:
-
-```bash
-curl -X POST http://localhost:5000/api/expenses \
-  -H "Content-Type: application/json" \
-  -d '{"title":"Lunch","amount":250,"category":"Food","date":"2026-07-01"}'
-```
-
----
 
 ## Common troubleshooting
 

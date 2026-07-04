@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+  background: linear-gradient(135deg, #E0F2FE, #FDE2E4, #FBCFE8);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+/* Animated gradient background */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Inputs */
+.react-datepicker__input-container input {
+  border: 2px solid #1D6E91;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.react-datepicker__input-container input:focus {
+  border-color: #3F5EFB;
+  box-shadow: 0 0 10px rgba(63, 94, 251, 0.5);
+}
+
+/* Calendar popup */
+.my-calendar {
+  border: 2px solid #3F5EFB;
+  background: linear-gradient(135deg, #FC466B, #3F5EFB);
+  color: white;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.my-calendar .react-datepicker__day--selected {
+  background-color: #EEAECA;
+  color: #FD1D1D;
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+.my-calendar .react-datepicker__day:hover {
+  background-color: #FCB045;
+  transform: scale(1.1);
+}
+
+/* Smooth fade-in */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Scrollbars */
+.scrollbar::-webkit-scrollbar {
+  width: 6px;
+  height: 8px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: white;
+  border-radius: 9999px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #3F5EFB, #FC466B);
+  border-radius: 9999px;
+  transition: background 0.3s ease;
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #FC466B, #3F5EFB);
+}
+
+html::-webkit-scrollbar {
+  width: 8px;
+}
+
+html::-webkit-scrollbar-track {
+  background: #e6e4e4;
+  border-radius: 9999px;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #a7a7a8;
+  border-radius: 9999px;
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: rgb(152, 153, 153);
+}
+
+/* Footer hover effect */
+footer {
+  transition: all 0.4s ease-in-out;
+}
+
+footer:hover {
+  background: linear-gradient(90deg, #FC466B, #3F5EFB);
+  transform: scale(1.02);
+  box-shadow: 0 4px 20px rgba(63, 94, 251, 0.4);
+}
+
+/* Buttons */
+button {
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}

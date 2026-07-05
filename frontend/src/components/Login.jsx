@@ -26,13 +26,35 @@ const Login = ({ setIsAuthenticated, setActiveSection }) => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 via-indigo-100 to-purple-100">
+
+    
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-blue-50 via-indigo-100 to-purple-100">
+   
+ {/* Project Name Banner */}
+<h1
+  className="text-6xl sm:text-7xl font-extrabold 
+             text-transparent bg-clip-text 
+             bg-gradient-to-r from-indigo-900 via-emerald-700 to-amber-600 
+             mb-10 tracking-widest 
+             drop-shadow-[0_10px_25px_rgba(0,0,0,0.8)] 
+             transition-all duration-700 ease-in-out 
+             hover:scale-110 hover:rotate-1 
+             hover:bg-gradient-to-r hover:from-red-700 hover:via-purple-700 hover:to-yellow-600 
+             animate-pulse"
+>
+  ExpensePilot
+</h1>
+
+
+
+
+      {/* Login Form */}
       <form
         onSubmit={handleSubmit}
-        className="bg-white shadow-xl rounded-xl p-8 w-full max-w-md animate-fadeIn"
+        className="bg-white shadow-2xl rounded-2xl p-8 w-full max-w-md animate-fadeIn"
       >
         <h2 className="text-3xl font-bold text-center text-indigo-600 mb-6">
-          Login
+          Login to Your Account
         </h2>
 
         <input
@@ -54,16 +76,13 @@ const Login = ({ setIsAuthenticated, setActiveSection }) => {
           className="w-full mb-4 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-400 transition"
           required
         />
-<button
-  type="submit"
-  className="w-full px-5 py-2 rounded-full !bg-blue-500 text-white font-bold hover:!bg-blue-700 transition"
->
-  Login
-</button>
 
-
-
-
+        <button
+          type="submit"
+          className="w-full px-5 py-2 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white font-bold hover:from-blue-700 hover:to-indigo-800 transition"
+        >
+          Login
+        </button>
 
         <p className="mt-4 text-sm text-gray-600 text-center">
           Don’t have an account?{" "}

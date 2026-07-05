@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, useLocation } from "react-router-dom";
 
 import SummaryCards from "./components/SummaryCards";
 import {
@@ -24,11 +24,14 @@ import Register from "./components/Register";
 import ResetPassword from "./components/ResetPassword";
 import LogoutButton from "./components/LogoutButton";
 
-const App = () => {
+const AppLayout = () => {
   const [activeSection, setActiveSection] = useState("home");
   const [isAuthenticated, setIsAuthenticated] = useState(
     !!localStorage.getItem("token")
   );
+
+  const location = useLocation();
+  const isAuthPage = ["/login", "/register", "/reset-password"].includes(location.pathname);
 
   useEffect(() => {
     const handleResize = () => {
@@ -41,20 +44,17 @@ const App = () => {
   }, [activeSection]);
 
   return (
-    <Router>
-      <div className="min-h-screen flex flex-col bg-[#BDD6F2]">
-        {/* Header */}
+    <div className="min-h-screen flex flex-col bg-[#BDD6F2]">
+      {/* Header */}
+      {!isAuthPage && (
         <header className="bg-gradient-to-r from-[#a78bfa] via-[#8b5cf6] to-[#7c3aed] shadow-md mb-2 rounded-b-md border-b-2 border-[#a78bfa] flex justify-between items-center px-6 py-3 animate-fadeIn">
-          {/* Left side: Home icon + Title */}
-         <div className="flex items-center space-x-3">
-  <HomeIcon className="w-9 h-9 text-white hover:text-[#fbbf24] transition-colors duration-300" />
-  <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-wide font-sans">
-    ExpensePilot
-  </h1>
-</div>
+          <div className="flex items-center space-x-3">
+            <HomeIcon className="w-9 h-9 text-white hover:text-[#fbbf24] transition-colors duration-300" />
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-white tracking-wide font-sans">
+              ExpensePilot
+            </h1>
+          </div>
 
-
-          {/* Right side: Nav buttons */}
           <nav className="space-x-4 flex items-center">
             {!isAuthenticated && (
               <>
@@ -88,49 +88,49 @@ const App = () => {
             )}
           </nav>
         </header>
+      )}
 
-        {/* Sidebar (only when logged in) */}
-        {isAuthenticated && (
-          <div className="hidden md:flex flex-col bg-[#05375E] text-white w-16 py-6 fixed top-0 left-0 h-screen items-center space-y-6 border-2 border-white rounded-md">
-            <button onClick={() => setActiveSection("dashboard")}>
-              <HomeIcon className="w-8 h-8" />
-            </button>
-            <button onClick={() => setActiveSection("income")}>
-              <BanknotesIcon className="w-8 h-8" />
-            </button>
-            <button onClick={() => setActiveSection("expense")}>
-              <CreditCardIcon className="w-8 h-8" />
-            </button>
-          </div>
-        )}
+      {/* Sidebar (only when logged in and not on auth pages) */}
+      {isAuthenticated && !isAuthPage && (
+        <div className="hidden md:flex flex-col bg-[#05375E] text-white w-16 py-6 fixed top-0 left-0 h-screen items-center space-y-6 border-2 border-white rounded-md">
+          <button onClick={() => setActiveSection("dashboard")}>
+            <HomeIcon className="w-8 h-8" />
+          </button>
+          <button onClick={() => setActiveSection("income")}>
+            <BanknotesIcon className="w-8 h-8" />
+          </button>
+          <button onClick={() => setActiveSection("expense")}>
+            <CreditCardIcon className="w-8 h-8" />
+          </button>
+        </div>
+      )}
 
-        {/* Routes for login/register only */}
-        <Routes>
-          <Route
-            path="/login"
-            element={
-              <Login
-                setIsAuthenticated={setIsAuthenticated}
-                setActiveSection={setActiveSection}
-              />
-            }
-          />
-          <Route path="/register" element={<Register />} />
-          <Route path="/reset-password" element={<ResetPassword />} />
-        </Routes>
+      {/* Routes */}
+      <Routes>
+        <Route
+          path="/login"
+          element={
+            <Login
+              setIsAuthenticated={setIsAuthenticated}
+              setActiveSection={setActiveSection}
+            />
+          }
+        />
+        <Route path="/register" element={<Register />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
+      </Routes>
 
-        {/* ✅ Main content controlled by activeSection */}
+      {/* Main content only if not on auth pages */}
+      {!isAuthPage && (
         <main className="flex-1 md:ml-16 p-2">
           {(!isAuthenticated || activeSection === "home") && (
             <div className="text-center p-10 bg-[#D9EAFA] flex flex-col justify-center items-center border-2 border-white min-h-screen">
               <Home />
-              {/* Removed Go To Dashboard button */}
             </div>
           )}
 
           {isAuthenticated && activeSection !== "home" && (
             <>
-              {/* Summary always visible */}
               <div>
                 <button
                   className="sm:hidden"
@@ -172,11 +172,17 @@ const App = () => {
             </>
           )}
         </main>
+      )}
 
-        <Footer />
-      </div>
-    </Router>
+      {!isAuthPage && <Footer />}
+    </div>
   );
 };
+
+const App = () => (
+  <Router>
+    <AppLayout />
+  </Router>
+);
 
 export default App;

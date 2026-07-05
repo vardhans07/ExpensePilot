@@ -32,10 +32,27 @@ const Register = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-green-50 via-teal-100 to-blue-100">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-green-50 via-teal-100 to-blue-100 relative overflow-hidden">
+      
+      {/* Project Name Banner */}
+      <h1
+        className="text-6xl sm:text-7xl font-extrabold 
+                   text-transparent bg-clip-text 
+                   bg-gradient-to-r from-indigo-900 via-emerald-700 to-amber-600 
+                   mb-10 tracking-widest 
+                   drop-shadow-[0_10px_25px_rgba(0,0,0,0.8)] 
+                   transition-all duration-700 ease-in-out 
+                   hover:scale-110 hover:rotate-1 
+                   hover:bg-gradient-to-r hover:from-red-700 hover:via-purple-700 hover:to-yellow-600 
+                   animate-pulse"
+      >
+        ExpensePilot
+      </h1>
+
+      {/* Register Form */}
       <form
         onSubmit={handleSubmit}
-        className="bg-white shadow-xl rounded-xl p-8 w-full max-w-md animate-fadeIn"
+        className="bg-white shadow-2xl rounded-2xl p-8 w-full max-w-md animate-fadeIn relative z-10"
       >
         <h2 className="text-3xl font-bold text-center text-green-600 mb-6">
           Register

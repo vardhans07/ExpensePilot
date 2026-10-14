@@ -6,6 +6,7 @@ import mongoose from "mongoose";
 
 import expenseRoutes from "./src/routes/expenseRoutes.js";
 import incomeRoutes from "./src/routes/incomeRoutes.js";
+import authRoutes from "./src/routes/authRoutes.js";
 
 dotenv.config();
 
@@ -29,7 +30,7 @@ app.get("/api", (_req, res) => res.json({ ok: true }));
 // --- API routes
 app.use("/api/expenses", expenseRoutes);
 app.use("/api/incomes", incomeRoutes);
-
+app.use("/api/auth", authRoutes);   // added line on 03.07.2026 for user login api 
 // --- 404 + error handlers (optional but nice)
 app.use((req, res) => res.status(404).json({ error: "Not found" }));
 app.use((err, _req, res, _next) => {

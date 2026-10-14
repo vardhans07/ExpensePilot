@@ -1,459 +1,170 @@
+# 🛠️ Smart Expense Tracker — Backend (Node.js + Express + MongoDB)
 
+This is the **backend API** for the Smart Expense Tracker.  
+It provides RESTful endpoints to manage **incomes** and **expenses**, with full CRUD operations, filtering, and persistent storage in **MongoDB Atlas**.
+
+🌐 **Frontend (Live App):** https://smart-expense-tracker-nine.vercel.app  
+⚙️ **Backend (API):** https://smart-expense-backend-n1u3.onrender.com  
 
 ---
 
-# ExpensePilot
-ExpensePilot is a smart, full‑stack expense tracking application that helps users take control of their personal finances. It combines a powerful backend with an intuitive frontend to make expense management effortless and insightful.
+## ✨ Features
+- 🔄 Full **CRUD API** for incomes & expenses  
+- 🧪 Query filters for category, amount, and date range  
+- 🍃 Persistent data storage in **MongoDB Atlas**  
+- 🔑 Configurable with environment variables  
+- 🌍 CORS-enabled (frontend + backend integration)  
+- 📝 Request logging with **morgan**  
+
+---
+
+## ⚙️ Tech Stack
+- 🟢 Node.js  
+- 🚂 Express.js  
+- 🍃 MongoDB Atlas + Mongoose  
+- 🔑 dotenv (env config)  
+- 🌍 CORS  
+- 📝 morgan (logging)  
+- 🚀 Deployment: Render  
+
+---
+
+## 🚀 Run Locally
+
+### 1. Clone & Install
+```bash
+git clone https://github.com/<you>/smart-expense-backend
+cd smart-expense-backend
+npm install
+```
+
+### 2. Configure Environment
+Create a .env file in the project root:
+
+```inv
+MONGO_URI=<your-mongodb-uri>
+PORT=5000
+FRONTEND_URL=http://localhost:5173
+```
+
+### 3. Start Server
+```bash
+npm run dev   # development with nodemon
+# or
+npm start     # production
+```
+
+Server will start on:
+👉 http://localhost:5000
+
+----
 
 
-## What this project uses
+
+
+
+# 📊 Smart Expense Tracker (Full-Stack)
+
+A simple, clean web application to **track income, expenses, balance, and spending categories** — built with **ReactJS, Tailwind CSS** (frontend) and **Node.js, Express, MongoDB Atlas** (backend). Visualize spending with **charts** and see where your money goes.
+
+🌐 **Live App:** https://smart-expense-tracker-nine.vercel.app  
+⚙️ **API (Backend):** https://smart-expense-backend-n1u3.onrender.com  
+
+---
+
+## ✨ Features
+
+- ✏ Add & edit **incomes** and **expenses**
+- 🧪 Filter expenses by **date, amount,** and **category**
+- 📃 View **totals** and **category-wise** breakdown
+- 📈 Visual **Pie Chart** for Spending Breakdown
+- 🗂 **Summary Cards**: Income, Expense, Balance
+- 🧾 View All Transactions in One Place
+- 🎨 Clean, responsive dashboard for desktop & mobile
+- 🌍 **Persistent storage with MongoDB Atlas**
+- 🔄 **REST API (CRUD)** built with Express
+- 📆 **Datepicker** for customizable date input
+- 🔔 Notifications with **react-toastify**
+
+---
+
+## ⚙️ Tech Stack
 
 ### Frontend
-- React 19
-- Vite
-- Tailwind CSS 4
-- Axios
-- Recharts
-- Chart.js
-- React Datepicker
-- React Toastify
-- Date-fns
-- Lottie React
-- Heroicons
-- Font Awesome
+- ⚛ ReactJS + Context API
+- 🎨 Tailwind CSS
+- 🔹 Heroicons
+- 🧿 Recharts (charts & data viz)
+- 🌌 Lottie animations
+- 🚀 Deployed on **Vercel**
 
 ### Backend
-- Node.js
-- Express
-- MongoDB Atlas
-- Mongoose
-- CORS
-- dotenv
-- morgan
+- 🟢 Node.js + Express
+- 🍃 MongoDB Atlas + Mongoose
+- 🔑 CORS, dotenv, morgan
+- 🚀 Deployed on **Render**
 
 ---
 
-## What you need to install on your PC or laptop
+## 📂 Project Structure (Frontend)
 
-Before running this project, install the following tools:
-
-### 1) Node.js and npm
-Node.js is required for both frontend and backend development. npm comes with Node.js and is used to install project dependencies. Use the LTS version for best stability.
-
-Verify installation:
-```bash
-node -v
-npm -v
-```
-
-### 2) Git
-Git is needed to clone the repository and manage source code.
-
-Verify installation:
-```bash
-git --version
-```
-
-### 3) MongoDB Atlas account
-This project uses MongoDB Atlas for database storage. You do not need to install MongoDB locally if you are using Atlas. Create:
-- A MongoDB Atlas account
-- A database cluster
-- A database user
-- A connection string
-
-MongoDB Atlas is the hosted cloud database service used by this project. It provides the `MONGO_URI` value for the backend environment file. [web:15]
+📦 SmartExpenseTracker  
+ ┣ 📂 src  
+ ┃ ┣ 📂 components  
+ ┃ ┃ ┣ Home.jsx  
+ ┃ ┃ ┣ SummaryCards.jsx  
+ ┃ ┃ ┣ ExpenseChart.jsx  
+ ┃ ┃ ┣ Transactions.jsx  
+ ┃ ┃ ┣ CategoryTotals.jsx  
+ ┃ ┃ ┣ AddIncomeForm.jsx  
+ ┃ ┃ ┣ IncomeList.jsx  
+ ┃ ┃ ┣ AddExpenseForm.jsx  
+ ┃ ┃ ┣ ExpenseList.jsx  
+ ┃ ┃ ┣ FilterPanel.jsx  
+ ┃ ┃ ┣ MobileViewHomePage.jsx  
+ ┃ ┣ 📂 context  
+ ┃ ┃ ┗ ExpenseContext.jsx  
+ ┃ ┣ 📂 services  
+ ┃ ┃ ┗ api.js  
+ ┃ ┣ App.jsx  
+ ┃ ┣ index.css  
+ ┃ ┣ main.jsx  
 
 ---
 
-## Recommended versions
+## ❓ Why This Project?
 
-- Node.js: LTS version
-- npm: latest compatible with your Node.js version
-- Browser: latest Chrome, Edge, or Firefox
-- Code editor: VS Code recommended
-
-To check installed versions:
-```bash
-node -v
-npm -v
-git --version
-```
+✅ Demonstrates **React state management** (Context API), conditional rendering, and responsive design.  
+✅ Showcases **full-stack development** with REST API + database.  
+✅ Clean and clear **component-based architecture**.  
+✅ Perfect **portfolio project** to showcase front-end + back-end integration.  
 
 ---
 
-## Project structure
+## 🤝 What I Learned
 
-Use this structure if your project is organized in separate frontend and backend folders:
-
-```bash
-ExpensePilot/
-├── frontend/
-│   ├── src/ 
-│   │       ├── assets
-│   │       ├── componets
-│   │       ├── context
-│   │ 
-│   ├──App.css
-│   ├──App.jsx
-│   ├──index.css
-│   ├──main.jsx
-│   ├──index.html
-│   ├── package.json
-│   └── .env
-├── backend/
-│   ├── src/
-│   │   ├── routes/
-│   │   ├── models/
-│   │   ├── controllers/
-│   │   └── index.js
-│   ├── package.json
-│   ├──server.js
-│   └── .env
-└── README.md
-```
-
-If your backend files are directly in the root, use the same commands from the project root instead of `backend/`.
+- Managing **global state** with React Context
+- Building **REST APIs** with Express & MongoDB
+- Handling **CRUD operations** from frontend to backend
+- Deploying frontend (Vercel) and backend (Render) with environment variables
+- Implementing **filters, charts, and responsive UI**
 
 ---
 
-## Features
+## 📸 Preview
 
-- Add income and expense entries
-- Edit and delete transactions
-- View total income, total expense, and balance
-- Filter expenses by date, amount, and category
-- View category-wise totals
-- View charts and visual spending breakdown
-- Responsive UI for desktop and mobile
-- Persistent data storage with MongoDB Atlas
-- REST API for CRUD operations
+![Dashboard Preview](image.png)
 
 ---
 
-## Environment variables
+## 🚀 Run Locally
 
-### Backend `.env`
-Create a `.env` file inside the backend folder:
-
+### Backend
 ```bash
-MONGO_URI=your_mongodb_atlas_connection_string
-PORT=5000
-FRONTEND_URL=http://localhost:5173
-```
-
-### Frontend `.env`
-Create a `.env` file inside the frontend folder if your frontend uses API variables:
-
-```bash
-VITE_API_URL=http://localhost:5000/api
-```
-
-Vite only exposes environment variables that start with `VITE_`.
-
----
-
-## Installation steps
-
-## Step 1: Clone the project
-
-Go to the folder where you want to place the project, then run:
-
-```bash
-git clone https://github.com/your-username/ExpensePilot.git
-cd ExpensePilot
-```
-
----
-
-## Step 2: Install backend dependencies
-
-Move into the backend folder and install packages:
-
-```bash
-cd backend
-npm install
-```
-
-This installs all backend dependencies from `package.json`. npm installs project dependencies listed in the file when you run `npm install`. [web:19]
-
----
-
-## Step 3: Add backend environment file
-
-Inside the `backend/` folder, create a file named `.env` and add:
-
-```bash
-MONGO_URI=your_mongodb_atlas_connection_string
-PORT=5000
-FRONTEND_URL=http://localhost:5173
-```
-
-Example command for Linux/macOS terminal:
-
-```bash
-cat > .env <<EOF
-MONGO_URI=your_mongodb_atlas_connection_string
-PORT=5000
-FRONTEND_URL=http://localhost:5173
-EOF
-```
-
-If you are on Windows, create the `.env` file manually in the backend folder.
-
----
-
-## Step 4: Start the backend
-
-From the `backend/` folder:
-
-```bash
-npm run dev
-```
-
-If your backend does not have a `dev` script, use:
-
-```bash
-npm start
-```
-
-If your entry file is different, run the server using the correct file path, for example:
-
-```bash
-node src/index.js
-```
-
-Your backend will usually run on:
-
-```bash
-http://localhost:5000
-```
-
----
-
-## Step 5: Install frontend dependencies
-
-Open a new terminal window and move into the frontend folder:
-
-```bash
-cd frontend
-npm install
-```
-
-This installs React, Vite, Tailwind, chart libraries, date utilities, and all UI packages used by the app.
-
----
-
-## Step 6: Add frontend environment file
-
-Inside the `frontend/` folder, create a `.env` file if your app uses an API URL:
-
-```bash
-VITE_API_URL=http://localhost:5000/api
-```
-
-Example command for Linux/macOS terminal:
-
-```bash
-cat > .env <<EOF
-VITE_API_URL=http://localhost:5000/api
-EOF
-```
-
----
-
-## Step 7: Start the frontend
-
-From the `frontend/` folder:
-
-```bash
-npm run dev
-```
-
-Vite usually starts the app on:
-
-```bash
-http://localhost:5173
-```
-
----
-
-## Run both together
-
-If you want to run frontend and backend side by side, open two terminals:
-
-### Terminal 1 — backend
-```bash
-cd backend
-npm run dev
-```
-
-### Terminal 2 — frontend
-```bash
-cd frontend
-npm run dev
-```
-
----
-
-## Production build
-
-### Build frontend
-From the `frontend/` folder:
-
-```bash
-npm run build
-```
-
-This creates a production-ready build inside the `dist/` folder.
-
-### Preview frontend build locally
-```bash
-npm run preview
-```
-
----
-
-## Backend run in production
-
-From the `backend/` folder:
-
-```bash
-npm start
-```
-
-If you deploy on Render or another cloud host, make sure these environment variables are added in the hosting dashboard:
-
-```bash
-MONGO_URI=your_mongodb_atlas_connection_string
-PORT=5000
-FRONTEND_URL=https://your-frontend-domain.com
-```
-
----
-
-## Main backend code behavior
-
-Your backend Express app does the following:
-- Enables JSON parsing
-- Enables CORS for frontend access
-- Logs requests with morgan
-- Connects to MongoDB Atlas using Mongoose
-- Exposes `/api/expenses` and `/api/incomes`
-- Returns a basic health response on `/` and `/api`
-
-Typical backend startup flow:
-
-```bash
-npm run dev
-```
-
-The server first connects to MongoDB, then starts listening on the configured port.
-
----
-
-## Suggested developer workflow
-
-### First time setup
-```bash
-git clone https://github.com/your-username/ExpensePilot.git
-cd ExpensePilot
-cd backend
-npm install
-cd ../frontend
-npm install
-```
-
-### Every time you run locally
-```bash
-cd backend
-npm run dev
-```
-
-```bash
-cd frontend
-npm run dev
-```
-
----
-
-
-
-## Common troubleshooting
-
-### MongoDB connection error
-Check:
-- `MONGO_URI` is correct
-- Atlas cluster is active
-- Database user exists
-- IP address is allowed in Atlas network access
-
-### CORS error
-Check:
-- `FRONTEND_URL` matches your frontend URL
-- Frontend and backend ports are correct
-- Your backend CORS config includes the correct origin
-
-### Frontend API not working
-Check:
-- `VITE_API_URL` is correct
-- Backend server is running
-- The frontend is calling the correct endpoint
-
-### Port already in use
-If port 5000 or 5173 is already busy, stop the other process or change the port in the `.env` file.
-
----
-
-## Notes for developers
-
-- Use `npm install` inside each folder that has its own `package.json`.
-- Keep `.env` files out of Git.
-- Use Vite for fast frontend development.
-- Use MongoDB Atlas for production-ready persistence.
-- Keep backend and frontend URLs consistent during local development and deployment.
-
----
-
-## Clean installation summary
-
-```bash
-git clone https://github.com/your-username/ExpensePilot.git
-cd ExpensePilot
-```
-
-```bash
-cd backend
+git clone https://github.com/<you>/smart-expense-backend
+cd smart-expense-backend
 npm install
 npm run dev
 ```
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-```bash
-cd frontend
-npm run build
-```
-
 ---
 
-## Final setup checklist
-
-- Node.js installed
-- npm installed
-- Git installed
-- MongoDB Atlas cluster created
-- `.env` files created in backend and frontend
-- Backend running on port 5000
-- Frontend running on port 5173
-- API connected correctly
-- Charts and dashboard working
-
----
-
-## Short project description
-
-ExpensePilot is a clean full-stack expense tracker built with React and Node.js, using MongoDB Atlas for persistent storage and a modern dashboard UI for managing personal finances.
